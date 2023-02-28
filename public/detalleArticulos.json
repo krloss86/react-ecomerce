@@ -1,0 +1,8 @@
+{
+    "id":1,
+    "titulo": "articulos 1",
+    "codigo": "000001",
+    "precio": 1500,
+    "categria": "categoria 1",
+    "marca": "marca 1"
+}

@@ -9,7 +9,7 @@ export const mensajeSlice = createSlice({
     initialState: MensajeEmttyState,
     reducers: {
         createMensaje: (state,action) => {
-            return action.payload;
+            return {mensaje:action.payload};
         },
         addMensaje: (state,action) => {
             return {...state,...action.payload};

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { MSJ_REMOVE } from "../../redux/actions/mensaje/actions";
+import { resetMensaje } from "../../redux2/states/mensaje";
 
 export default function MensajeriaComponent() {
 
@@ -10,7 +10,7 @@ export default function MensajeriaComponent() {
     const dispath = useDispatch();
 
     const limpiar = () => {
-        dispath(MSJ_REMOVE)
+        dispath(resetMensaje());
     }
     
     return (

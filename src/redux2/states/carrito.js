@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const CarritoEmptyState = {
     items:[]
@@ -9,31 +9,24 @@ export const carritoSlice = createSlice({
     initialState: CarritoEmptyState,
     reducers: {
         createCarrito: (state, action) => {
-            return action.payload;;
+            return {...CarritoEmptyState, items:[...CarritoEmptyState.items.concat(action.payload)]};
+        },
+        addCarrito: (state, action) => {
+            const aux  = current(state);
+            const filtered = aux.items.filter(x => x.item.id > 0);
+            filtered.push(action.payload);
+            return {items:filtered};
         },
         removeCarrito: (state,action) => {
-            const itemsFiltrados = state.items.filter(item=> item.item.id !== action.payload.item.id);
-            return itemsFiltrados;
+            const aux  = current(state);
+            const filtered = aux.items.filter(x => x.item.id !== action.payload.item.id);
+            return {items:filtered};
         },
         updateCarrito: (state,action) => {
-            const aux = [...state];
-            const idx = aux.items.indexOf(item => item.id === action.payload.item.id);
-            if(idx >= 0) {
-                const objAux = aux.items[idx];
-                //actualizo la cantidad
-                objAux.cantidad = action.payload.cantidad;
-            }
-            return aux;/*
-            const itemFiltrados = state.items.find(item => item.id !== action.payload.item.id); //{item:,cantidad:}
-            itemFiltrados.cantidad = action.payload.cantidad;
-
-            state.items.map(item => {
-                if(item.item.id === action.payload.item.id) {
-                    item.cantidad = action.payload.cantidad
-                }
-                return item;
-            });
-            */
+            const aux  = current(state);
+            const filtered = aux.items.filter(x => x.item.id !== action.payload.item.id);
+            filtered.push(action.payload);
+            return {items:filtered};
         },
         resetCarrito: () => {
             return CarritoEmptyState;
@@ -42,4 +35,4 @@ export const carritoSlice = createSlice({
     }
 });
 
-export const {createCarrito, removeCarrito, resetCarrito} = carritoSlice.actions;
+export const {createCarrito, removeCarrito, addCarrito, updateCarrito, resetCarrito} = carritoSlice.actions;

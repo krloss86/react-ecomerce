@@ -9,7 +9,7 @@ function GenerarOrdenComponent() {
 
     const isDisabled = () => {
 		// return  pais ==='' || direccion === '' || nombre ==='' || apellido ==='' || email ==='';
-		return false;
+		return true;
 	}
     return (<>
         <button className="w-100 btn btn-primary btn-lg"

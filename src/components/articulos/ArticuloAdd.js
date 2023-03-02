@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { CARRITO_ADD, CARRITO_UPDATE } from '../../redux/actions/carrito/actions';
-import { MSJ_ADD } from '../../redux/actions/mensaje/actions';
+import { createMensaje } from '../../redux2/states/mensaje';
+import { addCarrito, updateCarrito } from '../../redux2/states/carrito';
+
 export const ArticuloAdd = (props) => {
-    
-    const {articulo} = props;
+	
+	const {articulo} = props;
+
+	const dispatcher = useDispatch();
 
 	const carritoReducer = useSelector(
 		(state) => state.carrito
@@ -13,8 +16,6 @@ export const ArticuloAdd = (props) => {
 	
 	const [cantidad,setCantidad] = useState(0);
 
-    //para cargar datos en un componentes la primera vez
-    //uso useEffect
     useEffect( () => {
 
 		//cantidad del articulo en el carrito
@@ -23,33 +24,26 @@ export const ArticuloAdd = (props) => {
 		if(itemEnCarrito.length > 0) {
 			setCantidad(itemEnCarrito[0].cantidad);
 		}
-	},[articulo.id, carritoReducer.items]
-	);
+	},[articulo.id, carritoReducer]);
 
-	const carritoDispath = useDispatch();
 
 	const submitHandler = () => {
 
 		const existsInCart = carritoReducer.items.find(item=>item.item.id === articulo.id);
 		
-		let action = CARRITO_ADD;
-
 		if(existsInCart) {
-			action = CARRITO_UPDATE;
+			dispatcher(updateCarrito({
+				item:  articulo,
+				cantidad : cantidad
+			}));
+		}else {
+			dispatcher(addCarrito({
+				item:  articulo,
+				cantidad : cantidad
+			}));
 		}
-
-		action.payload = {
-			item:  articulo,
-			cantidad : cantidad
-		}
-
-		carritoDispath(action);
-
-		//informo que hubo un mensaje
-		let actionMsj = MSJ_ADD;
-		actionMsj.payload = 'Se ha agregado';
-
-		carritoDispath(actionMsj)
+		
+		dispatcher(createMensaje('Se ha agregado'));
 	}
 
 	const increment = () => {

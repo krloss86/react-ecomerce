@@ -37,8 +37,7 @@ function DatosCarritoComponent() {
 	        <ul className="list-group mb-3">
 				{
 					carritoReducer.items.map((item,index) => {
-						return <>
-							<li key={index} 
+						return <li key={index} 
 								className="list-group-item d-flex justify-content-between lh-sm">
 								<div>
 									<h6 className="my-0">{item.item.titulo}</h6>
@@ -47,7 +46,6 @@ function DatosCarritoComponent() {
 									{item.item.precio}
 								</span>
 							</li>
-						</>
 					})
 				}
 				<li className="list-group-item d-flex justify-content-between bg-light">

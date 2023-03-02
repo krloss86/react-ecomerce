@@ -10,10 +10,11 @@ export default function ArticulosComponent(props) {
 
     return (
         <>
+        {articuloReducer &&  articuloReducer.length > 0 &&
             <div className="container">
                 <div className="row mt-2 justify-content-center">
                     {
-                        articuloReducer.articulos.map((articulo, index) => {
+                        articuloReducer.map((articulo, index) => {
                                 return <ArticuloComponent key={index} articulo={articulo}></ArticuloComponent>
                             }
                         )
@@ -21,6 +22,7 @@ export default function ArticulosComponent(props) {
                 </div>
                 <Footer></Footer>
             </div>
+        }
         </>
     )
 }

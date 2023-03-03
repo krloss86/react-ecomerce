@@ -13,9 +13,9 @@ export default function DetallearticulosComponent() {
 	const [articulo,setArticulo] = useState({});
 
     useEffect( () => {
-        const articulo = articulosReducer.articulos.find(x=>x.id === parseInt(id));
+        const articulo = articulosReducer.find(x=>x.id === parseInt(id));
 		setArticulo(articulo);
-	},[articulosReducer.articulos, id]
+	},[articulosReducer, id]
 	);
 
     return (

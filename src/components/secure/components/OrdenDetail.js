@@ -19,7 +19,7 @@ function OrdenDetail() {
                         <div className="container">
                             <div className="table-wrapper mt-3">
                                 <div className="row">
-                                    <h4 >Detalle de orden N° 1</h4>
+                                    <h3 >Detalle de orden N° 1</h3>
                                     <table className="table table-striped table-hover">
                                         <thead >
                                             <tr >
@@ -34,7 +34,7 @@ function OrdenDetail() {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <h4 >Dirección de entrega</h4>
+                                    <h3>Dirección de entrega</h3>
                                     <table className="table table-striped table-hover">
                                         <thead >
                                             <tr >
@@ -53,7 +53,7 @@ function OrdenDetail() {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <h4 >Medio de Pago</h4>
+                                    <h3>Medio de Pago</h3>
                                     <table className="table table-striped table-hover">
                                         <thead >
                                             <tr >

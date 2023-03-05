@@ -9,7 +9,7 @@ export const CheckoutSuccessPage = () => {
     return (
         <div>
             <h1>Se ha generado la orden {id}</h1>
-            <NavLink to="/" className="btn btn-primary">
+            <NavLink to={`/secure/profile/orders/details/${id}`} className="btn btn-primary">
                 Volver
             </NavLink>
         </div>

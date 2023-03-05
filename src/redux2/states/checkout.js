@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const CheckoutEmptyState = {
     datosPersonales: {},
-    medioDePage: {},
+    medioDePago: {},
     items:{}
 };
 
@@ -15,6 +15,9 @@ export const checkoutSlice = createSlice({
         addDatosPersonales: (state,action) => {
             return {...state,...action.payload};
         },
+        resetDatosPersonales:(state,action) => {
+            return {...state, datosPersonales:{}};
+        },
         addMedioDePago: (state,action) => {
             return {...state,...action.payload};
         },
@@ -24,4 +27,4 @@ export const checkoutSlice = createSlice({
     }
 });
 
-export const {createCheckout, addDatosPersonales, addMedioDePago, resetCheckout} = checkoutSlice.actions;
+export const {createCheckout, addDatosPersonales, resetDatosPersonales, addMedioDePago, resetCheckout} = checkoutSlice.actions;

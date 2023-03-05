@@ -59,9 +59,9 @@ export const CarritoItemRow = (props) => {
                     {item.item.precio}
                 </td>
                 <td className="text-right">
-                    <button className="btn btn-sm btn-primary btnActualizar" onClick={() => updateCantidad(cantidad)}>
+                    {/* <button className="btn btn-sm btn-primary btnActualizar" onClick={() => updateCantidad(cantidad)}>
                         <i className="bi bi-arrow-clockwise"></i>
-                    </button>
+                    </button> */}
                     <button className="btn btn-sm btn-danger btnEliminar" onClick={() => eliminarItem()}>
                         <i className="bi bi-trash"></i>
                     </button>

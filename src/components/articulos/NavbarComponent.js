@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { addAll, remove, search } from '../../redux/actions/articulos/actions'
+// import { addAll, remove, search } from '../../redux/actions/articulos/actions'
 
 
 export default function NavbarComponent() {
@@ -11,7 +11,7 @@ export default function NavbarComponent() {
     const dispath = useDispatch();
 
     const buscar = () => {
-        if(clave !=='') {
+        /*if(clave !=='') {
             const articuloSearch = search;          
             articuloSearch.payload = clave;            
             dispath(articuloSearch);
@@ -26,7 +26,7 @@ export default function NavbarComponent() {
                 newAdd.payload = data
                 dispath(addAll)
             });
-        }
+        }*/
     }
 
     return (

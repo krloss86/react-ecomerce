@@ -1,16 +1,8 @@
-import React from 'react'
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
-import { CARRITO_REMOVE_ALL } from '../../redux/actions/carrito/actions';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addDatosPersonales, resetDatosPersonales } from '../../../redux2/states/checkout';
 
 function DatosPersonalesComponent() {
-
-    const navigate = useNavigate();
-
-	const carritoReducer = useSelector(
-        (state) => state.carrito
-    )
 
 	const dispach = useDispatch();
 
@@ -20,36 +12,19 @@ function DatosPersonalesComponent() {
 	const [apellido,setApellido] = useState('');
 	const [email,setEmail] = useState('');	
 
-    const handleSubmit = (e) => {
-		e.preventDefault();
-		if(window.confirm('¿Generar Orden?')) {
-			fetch('https://jsonplaceholder.typicode.com/posts', {
-				method: 'POST',
-				body: JSON.stringify(
-					{
-						pais:pais,
-						direccion: direccion,
-						nombre: nombre,
-						apellido: apellido,
-						email: email,
-						items: carritoReducer.items
-					}
-				),
-				headers: {
-					"Content-type": "application/json; charset=UTF-8"
-				}
-			}).then(response => {
-					return response.json()
-				}).then(json => {
-					//json.id -> 1
-
-					dispach(CARRITO_REMOVE_ALL);
-
-					const id = 1					
-					navigate({pathname: `/checkout-success/${id}`});
-			});
-		}
-	}
+    useEffect(()=>{
+        if(!!pais && !!direccion && !!nombre && !!apellido && !!email) {
+            dispach(addDatosPersonales({datosPersonales:{
+                pais: pais,
+                direccion: direccion,
+                nombre: nombre,
+                apellido: apellido,
+                email:email
+            }}))
+        }else {
+            dispach(resetDatosPersonales());
+        }
+    },[pais,direccion,nombre,apellido,email,dispach]);
 
     return (
         <>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-export const CheckoutSuccessComponent = () => {
+export const CheckoutSuccessPage = () => {
     
     const {id} = useParams();
 
@@ -16,4 +16,4 @@ export const CheckoutSuccessComponent = () => {
     )
 }
 
-export default CheckoutSuccessComponent;
+export default CheckoutSuccessPage;

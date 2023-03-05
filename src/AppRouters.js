@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ArticulosComponent from "./components/articulos/ArticulosComponent";
-import Carritocomponent from "./components/articulos/CarritoComponent";
+import Carritocomponent from "./components/carrito/CarritoComponent";
 import DetallearticulosComponent from "./components/articulos/DetalleArticulosComponent";
-import MensajeriaComponent from "./components/articulos/MensajeriaComponent";
+import MensajeriaComponent from "./components/mensaje/MensajeriaComponent";
 import Navbar from "./components/articulos/NavbarComponent";
-import NotFoundComponent from "./components/articulos/NotFoundComponent";
-import CheckoutSuccessComponent from "./components/checkout/CheckoutSuccessComponent";
+import NotFoundComponent from "./pages/404/NotFoundComponent";
+import CheckoutSuccessComponent from "./pages/checkout/CheckoutSuccessPage";
 import OrdenDetail from "./components/secure/components/OrdenDetail";
 import Ordenes from "./components/secure/pages/Ordenes";
 import Profile from "./components/secure/pages/Profile";
-import CheckoutPage from './pages/CheckoutPage';
+import CheckoutPage from './pages/checkout/CheckoutPage';
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { createArticulo } from "./redux2/states/articulo";
@@ -25,8 +25,6 @@ export default function AppRouters() {
         .then(
             (response) => response.json()
             ).then((data) => {
-                /*const newAdd = addAll;
-                newAdd.payload = data*/
                 dispath(createArticulo(data));
             }).catch((error)=>{
                 console.log(error);

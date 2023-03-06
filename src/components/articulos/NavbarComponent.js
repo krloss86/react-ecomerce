@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { /*useDispatch,*/ useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 // import { addAll, remove, search } from '../../redux/actions/articulos/actions'
 
@@ -8,7 +8,11 @@ export default function NavbarComponent() {
 
     const [clave,setClave] = useState('');
 
-    const dispath = useDispatch();
+    // const dispath = useDispatch();
+    
+	const carritoReducer = useSelector(
+        (state) => state.carrito
+    )
 
     const buscar = () => {
         /*if(clave !=='') {
@@ -40,20 +44,22 @@ export default function NavbarComponent() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">      	
                             <li className="nav-item">
-                                {/* <a className="nav-link" href="/productos">Productos</a> */}
                                 <NavLink activeclassname="active" className="nav-link" to="/productos">Productos</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink activeclassname="active" className="nav-link" to="/secure/profile">Usuario</NavLink>
                             </li>
                         </ul>
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li>
-                                <Link to="/carrito" className="btn btn-primary position-relative">
-                                    Carrito
-                                </Link>
-                            </li>
-                        </ul>
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li>
+                                    <Link to="/carrito" className="btn btn-primary position-relative">
+                                        <i className="bi bi-cart"></i>
+                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                            {carritoReducer.items.length || 0}
+                                        </span>
+                                    </Link>
+                                </li>
+                            </ul>
                         <div className="d-flex">
                             <input className="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar"
                                 value={clave}

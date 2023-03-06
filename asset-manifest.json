@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/react-ecomerce/static/css/main.31d6cfe0.css",
-    "main.js": "/react-ecomerce/static/js/main.6a249041.js",
+    "main.js": "/react-ecomerce/static/js/main.96c82521.js",
     "index.html": "/react-ecomerce/index.html",
-    "main.6a249041.js.map": "/react-ecomerce/static/js/main.6a249041.js.map"
+    "main.96c82521.js.map": "/react-ecomerce/static/js/main.96c82521.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
-    "static/js/main.6a249041.js"
+    "static/js/main.96c82521.js"
   ]
 }

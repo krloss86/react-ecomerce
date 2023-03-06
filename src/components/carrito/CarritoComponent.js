@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { CarritoItemRow } from "./CarritoItemRow";
 import { CarritoTotal } from "./CarritoTotalComponent";
 
@@ -17,10 +17,10 @@ export default function Carritocomponent() {
                         <p>No hay productos en el carrito</p>
                         <hr/>
                         <p className="mb-0">
-                            <Link to="/" className="btn btn-primary btn-md">
+                            <NavLink to={"/productos"} className="btn btn-primary btn-md">
                                 <i className="bi bi-cart"></i> 
                                 Continuar comprando 
-                            </Link>
+                            </NavLink>
                         </p>
                     </div>
                 </div>
@@ -56,16 +56,16 @@ export default function Carritocomponent() {
             </div>
             <div className="row">
                 <div className="col-6">
-                    <Link to="/" className="btn btn-block btn-secondary text-uppercase" tabIndex="0">
-                        Continue Shopping
-                    </Link>
+                    <NavLink to="/productos" className="btn btn-block btn-secondary text-uppercase" tabIndex="0">
+                        Continuar comprando
+                    </NavLink>
                 </div>
                 <div className="col-6">
-                    <Link to="/checkout" 
+                    <NavLink to={"/checkout"} 
                         className="btn btn-block btn-success text-uppercase w-100" 
                         tabIndex="1">
-                        Checkout
-                    </Link>
+                        Pagar
+                    </NavLink>
                 </div>
             </div>
             </>

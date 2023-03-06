@@ -21,7 +21,7 @@ export default function AppRouters() {
     //uso useEffect
     useEffect(() => {
         //consulta a un api rest
-        fetch('/articulos.json')
+        fetch('./articulos.json')
         .then(
             (response) => response.json()
             ).then((data) => {

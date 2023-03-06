@@ -1,0 +1,42 @@
+[
+    {
+        "id":1,
+        "titulo": "articulos 1",
+        "codigo": "000001",
+        "precio": 1500,
+        "categria": "categoria 1",
+        "marca": "marca 1"
+    },  
+    {   
+        "id":2,
+        "titulo": "articulos 2",
+        "codigo": "000002",
+        "precio": 3500,
+        "categria": "categoria 2",
+        "marca": "marca 2"
+    },  
+    {   
+        "id":3,
+        "titulo": "articulos 3",
+        "codigo": "000003",
+        "precio": 1530,
+        "categria": "categoria 3",
+        "marca": "marca 3"
+    },  
+    {   
+        "id":4,
+        "titulo": "articulos 4",
+        "codigo": "000004",
+        "precio": 1530,
+        "categria": "categoria 3",
+        "marca": "marca 4"
+    },  
+    {   
+        "id":5,
+        "titulo": "articulos 5",
+        "codigo": "000005",
+        "precio": 1530,
+        "categria": "categoria 3",
+        "marca": "marca 3"
+    }    
+]

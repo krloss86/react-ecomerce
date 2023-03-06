@@ -31,7 +31,7 @@ export default function AppRouters() {
             });
     });
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="react-ecomerce">
             <Navbar />
             <MensajeriaComponent/>
             <div className="container">

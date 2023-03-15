@@ -2,6 +2,7 @@ import { useState } from "react";
 import { /*useDispatch,*/ useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 // import { addAll, remove, search } from '../../redux/actions/articulos/actions'
+import LoginComponent from './../login/LoginComponent';
 
 
 export default function NavbarComponent() {
@@ -50,24 +51,29 @@ export default function NavbarComponent() {
                                 <NavLink activeclassname="active" className="nav-link" to="/secure/profile">Usuario</NavLink>
                             </li>
                         </ul>
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li>
-                                    <Link to="/carrito" className="btn btn-primary position-relative">
-                                        <i className="bi bi-cart"></i>
-                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
-                                            {carritoReducer.items.length || 0}
-                                        </span>
-                                    </Link>
-                                </li>
-                            </ul>
-                        <div className="d-flex">
+                        <div className="navbar-nav">
                             <input className="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar"
                                 value={clave}
                                 onChange={e => setClave(e.target.value)}/>
                             <button className="btn btn-secondary my-2 my-sm-0" type="button" onClick={() => buscar()}>
                                 Buscar
                             </button>
-                        </div>		
+                        </div>
+                        <ul className="navbar-nav mb-2 mb-lg-0 mt-sm-2 mt-md-2 mt-lg-0">
+                            <li>
+                                <Link to="/carrito" className="btn btn-primary position-relative">
+                                    <i className="bi bi-cart"></i>
+                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                        {carritoReducer.items.length || 0}
+                                    </span>
+                                </Link>
+                            </li>
+                        </ul>
+                        <ul className="navbar-nav mb-2 mb-lg-0 mt-sm-2 mt-md-2 mt-lg-0">
+                            <li className="mx-2">
+                                <LoginComponent/>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>       

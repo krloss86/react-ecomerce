@@ -20,14 +20,16 @@ export default function AppRouters() {
             <div className="container">
                 <Routes>
                     <Route path="/" element={<ArticulosComponent />} />
-                    <Route path="/articulo/detalle/:id" element={<DetallearticulosComponent />} />
                     <Route path="/carrito" element={<Carritocomponent />} />
-                    <Route path="/checkout" element={<CheckoutPage />} />
-                    <Route path="/checkout-success/:id" element={<CheckoutSuccessComponent />} />
+                    <Route path="/articulo/detalle/:id" element={<DetallearticulosComponent />} />
                     <Route path="/productos" element={<ArticulosComponent />} />
+                    <Route path="/checkout" element={<CheckoutPage />} />
+
+                    <Route path="/checkout-success/:id" element={<CheckoutSuccessComponent />} />
                     <Route path="/secure/profile" element={<Profile />} />
                     <Route path="/secure/profile/orders" element={<Ordenes />} />
                     <Route path="/secure/profile/orders/details/:id" element={<OrdenDetail />} />
+
                     <Route path="*" element={<NotFoundComponent />} />
                 </Routes>
             </div>

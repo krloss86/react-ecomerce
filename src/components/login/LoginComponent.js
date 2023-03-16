@@ -2,38 +2,40 @@ import jwt_decode from 'jwt-decode';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../../redux2/states/login';
+import { useState } from 'react';
 
 const LoginComponent = () => {
     
+    const [count, setCount] = useState(0);
+
     const dispatcher = useDispatch();
 
     const loginStore = useSelector(store => store.login);
 
     const hanldeLogout = () => {
         dispatcher(logout());
-    }
-
-    const dispath = useDispatch();
-
-    const handleCallbackResponse = (response) => {
-        const userObject = jwt_decode(response.credential);
-        dispath(login({user: userObject}))
+        setCount(0);
     }
 
     useEffect(() => {
         /* global google */
-        google.accounts.id.initialize({
-            client_id: '492139773464-u7phka2ltscq09ahdrt1egij4nl8fddr.apps.googleusercontent.com',
-            callback: handleCallbackResponse
-        });
-        google.accounts.id.renderButton(
-            document.getElementById('signInDiv'),
-            { theme: 'aoutline', size: 'large' }
-        );
-    }, [loginStore]);
-
-    useEffect(() => {
-    }, [loginStore.user])
+        try {
+            google.accounts.id.initialize({
+                client_id: '492139773464-u7phka2ltscq09ahdrt1egij4nl8fddr.apps.googleusercontent.com',
+                callback: (response) => {
+                    const userObject = jwt_decode(response.credential);
+                    dispatcher(login({user: userObject}))
+                }
+            });
+            google.accounts.id.renderButton(
+                document.getElementById('signInDiv'),
+                { theme: 'aoutline', size: 'large' }
+            );
+        }catch(error) {
+            console.log('google load fail, traying')
+            setCount(prev=>prev+1);
+        }
+    }, [count, loginStore.user]);
 
     return (
         <>
@@ -42,9 +44,11 @@ const LoginComponent = () => {
         }
         { loginStore.user && 
             <>
+                {/*
                 <img src={loginStore?.user?.picture} alt=""/>
-                <h3>{loginStore?.user?.name}</h3>
-                <button onClick={hanldeLogout}>
+                <h5>{loginStore?.user?.name}</h5>
+                */}
+                <button onClick={hanldeLogout} className="btn btn-danger">
                     Logout
                 </button>
             </>

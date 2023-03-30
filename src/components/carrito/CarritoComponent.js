@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { CarritoItemRow } from "./CarritoItemRow";
 import { CarritoTotal } from "./CarritoTotalComponent";
+import { PrivateRoutes } from './../../guards/routes';
 
 export default function Carritocomponent() {
     const carritoReducer = useSelector(
@@ -17,7 +18,9 @@ export default function Carritocomponent() {
                         <p>No hay productos en el carrito</p>
                         <hr/>
                         <p className="mb-0">
-                            <Link to="/" className="btn btn-primary btn-md">
+                            <Link className="btn btn-primary btn-md"
+                                to="/" 
+                                >
                                 <i className="bi bi-cart"></i> 
                                 Continuar comprando 
                             </Link>
@@ -61,7 +64,7 @@ export default function Carritocomponent() {
                     </Link>
                 </div>
                 <div className="col-6">
-                    <Link to="/checkout" 
+                    <Link to={PrivateRoutes.CHECKOUT} 
                         className="btn btn-block btn-success text-uppercase w-100" 
                         tabIndex="1">
                         Checkout

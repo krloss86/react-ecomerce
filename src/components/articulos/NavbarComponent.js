@@ -2,6 +2,8 @@ import { useState } from "react";
 import { /*useDispatch,*/ useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import LoginComponent from './../login/LoginComponent';
+import { PrivateRoutes, PublicRoutes } from './../../guards/routes';
+import Profile from './../secure/pages/Profile';
 
 
 export default function NavbarComponent() {
@@ -44,10 +46,19 @@ export default function NavbarComponent() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">      	
                             <li className="nav-item">
-                                <NavLink activeclassname="active" className="nav-link" to="/productos">Productos</NavLink>
+                                <NavLink activeclassname="active" 
+                                    className="nav-link"
+                                    to={PublicRoutes.PRODUCTOS}>
+                                        Productos
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeclassname="active" className="nav-link" to="/secure/profile">Usuario</NavLink>
+                                <NavLink activeclassname="active" 
+                                    className="nav-link"
+                                    to={PrivateRoutes.PROFILE}
+                                    >
+                                        Usuario
+                                </NavLink>
                             </li>
                         </ul>
                         <div className="navbar-nav">
@@ -60,7 +71,9 @@ export default function NavbarComponent() {
                         </div>
                         <ul className="navbar-nav mb-2 mb-lg-0 mt-sm-2 mt-md-2 mt-lg-0">
                             <li>
-                                <Link to="/carrito" className="btn btn-primary position-relative">
+                                <Link className="btn btn-primary position-relative"
+                                    to={PublicRoutes.CARRITO} 
+                                >
                                     <i className="bi bi-cart"></i>
                                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
                                         {carritoReducer.items.length || 0}

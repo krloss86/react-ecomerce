@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { PrivateRoutes } from '../../../guards/routes'
 import ChangePassword from './ChangePassword'
 
 function ProfileNavbar() {
@@ -17,21 +18,21 @@ function ProfileNavbar() {
                             <li className="nav-item">
                                 <NavLink className="nav-link active" 
                                     aria-current="page"
-                                    to={'/secure/profile'}>
+                                    to={PrivateRoutes.PROFILE}>
                                     Datos Personales
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" 
                                     aria-current="page"
-                                    to={'/secure/profile'}>
+                                    to={PrivateRoutes.PROFILE}>
                                     Direcciones
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" 
                                     aria-current="page"
-                                    to={'/secure/profile'}>
+                                    to={PrivateRoutes.PROFILE}>
                                     Mis Tarjetas
                                 </NavLink>
                             </li>
@@ -49,7 +50,7 @@ function ProfileNavbar() {
                     <div className="accordion-body">
                         <ul className="nav flex-column">
                             <li className="nav-item">
-                                <NavLink to='/secure/profile/orders'  className='nav-link'>
+                                <NavLink to={PrivateRoutes.ORDERS} className='nav-link'>
                                     Ordenes
                                 </NavLink>
                             </li>

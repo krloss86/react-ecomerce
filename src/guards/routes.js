@@ -1,12 +1,16 @@
 export const PublicRoutes = {
-    CARRITO: 'carrito',
-    PRODUCTOS: 'productos',
+    CARRITO: '/carrito',
+    PRODUCTOS: '/productos',
+    ARTICULO_DETALLE: '/articulo/detalle/:id',
+    ARTICULO_DETALLE_PATH: '/articulo/detalle/',
 }
 
 export const PrivateRoutes = {
-    CHECKOUT:'checkout',
-    CHECKOUT_SUCCESS: 'checkout/success',
-    SECURE_PROFILE: 'secure/profile',
-    SECURE_PROFILE_ORDERS: 'secure/profile/orders',
-    SECURE_PROFILE_ORDERS_DETAILS_ID: 'secure/profile/orders/details/:id'
+    CHECKOUT:'/private/checkout',
+    CHECKOUT_SUCCESS: '/private/checkout-success/:id',
+    CHECKOUT_SUCCESS_PATH: '/private/checkout-success/',
+    PROFILE: '/private/profile',
+    ORDERS: '/private/orders',
+    ORDERS_DETAILS_ID: '/private/orders/details/:id',
+    ORDERS_DETAILS_ID_PATH: '/private/orders/details/'
 }

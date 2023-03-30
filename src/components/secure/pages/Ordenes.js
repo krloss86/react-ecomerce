@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { PrivateRoutes } from '../../../guards/routes';
 import ProfileNavbar from '../components/ProfileNavbar';
 
 function Ordenes() {
@@ -56,7 +57,7 @@ function Ordenes() {
                                         <td>100</td>
                                         <td>Aug 19, 2016</td>
                                         <td>
-                                            <NavLink to={'/secure/profile/orders/details/1'}>
+                                            <NavLink to={`${PrivateRoutes.ORDERS_DETAILS_ID_PATH}1`}>
                                                 <i className="bi bi-arrow-right-circle-fill" style={{'fontSize': '1.5rem', color: 'cornflowerblue'}}></i>
                                             </NavLink>
                                         </td>
@@ -67,12 +68,9 @@ function Ordenes() {
                                         <td>110</td>
                                         <td>Jul 19, 2016</td>
                                         <td>
-                                            <a className="view" 
-                                                data-toggle="tooltip" 
-                                                title="View Details"
-                                                href="#/user/orders/details/2">
-                                                    <i className="bi bi-arrow-right-circle-fill" style={{'fontSize': '1.5rem', color: 'cornflowerblue'}}></i>
-                                            </a>
+                                            <NavLink to={`${PrivateRoutes.ORDERS_DETAILS_ID_PATH}1`}>
+                                                <i className="bi bi-arrow-right-circle-fill" style={{'fontSize': '1.5rem', color: 'cornflowerblue'}}></i>
+                                            </NavLink>
                                         </td>
                                     </tr>
                                     <tr>
@@ -81,28 +79,11 @@ function Ordenes() {
                                         <td>120</td>
                                         <td>Jun 19, 2016</td>
                                         <td>
-                                            <a className="view" 
-                                                data-toggle="tooltip" 
-                                                title="View Details"
-                                                href="#/user/orders/details/3">
-                                                    <i className="bi bi-arrow-right-circle-fill" style={{'fontSize': '1.5rem', color: 'cornflowerblue'}}></i>
-                                            </a>
+                                            <NavLink to={`${PrivateRoutes.ORDERS_DETAILS_ID_PATH}1`}>
+                                                <i className="bi bi-arrow-right-circle-fill" style={{'fontSize': '1.5rem', color: 'cornflowerblue'}}></i>
+                                            </NavLink>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>rejected</td>
-                                        <td>120</td>
-                                        <td>Jun 19, 2016</td>
-                                        <td>
-                                            <a className="view" 
-                                                data-toggle="tooltip" 
-                                                title="View Details"
-                                                href="#/user/orders/details/4">
-                                                    <i className="bi bi-arrow-right-circle-fill" style={{'fontSize': '1.5rem', color: 'cornflowerblue'}}></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    </tr>                                   
                                 </tbody>
                             </table>
                         </div>

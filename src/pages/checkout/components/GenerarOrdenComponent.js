@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { resetCarrito } from '../../../redux2/states/carrito';
 import { resetCheckout } from '../../../redux2/states/checkout';
+import { PrivateRoutes } from '../../../guards/routes';
 
 function GenerarOrdenComponent() {
     const [disabled,setDisable] = useState(true);
@@ -29,7 +30,7 @@ function GenerarOrdenComponent() {
 
     useEffect(() => {
         if(checkoutSuccess) {
-            navigate(`/checkout-success/${Math.random()}`);
+            navigate(`${PrivateRoutes.CHECKOUT_SUCCESS_PATH}${Math.random()}`);
         }
     },[checkoutSuccess,navigate]);
 

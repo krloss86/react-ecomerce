@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { PrivateRoutes } from '../../../guards/routes';
 import ProfileNavbar from './ProfileNavbar';
 
 function OrdenDetail() {
@@ -72,7 +73,7 @@ function OrdenDetail() {
                                         <tbody >
                                             <tr >
                                                 <td>
-                                                    <Link to={'/secure/profile/orders'}>
+                                                    <Link to={PrivateRoutes.ORDERS}>
                                                         <i className="bi bi-arrow-left-circle-fill" style={{'fontSize': '1.5rem', color: 'cornflowerblue'}}></i>
                                                     </Link>
                                                 </td>

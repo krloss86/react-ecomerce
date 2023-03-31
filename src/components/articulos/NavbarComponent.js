@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { /*useDispatch,*/ useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import LoginComponent from './../login/LoginComponent';
 import { PrivateRoutes, PublicRoutes } from './../../guards/routes';
-import Profile from './../secure/pages/Profile';
+import LoginComponent from './../login/LoginComponent';
 
 
 export default function NavbarComponent() {
@@ -15,6 +14,8 @@ export default function NavbarComponent() {
 	const carritoReducer = useSelector(
         (state) => state.carrito
     )
+
+    const loginStore = useSelector(store => store.login);
 
     const buscar = () => {
         /*if(clave !=='') {
@@ -52,14 +53,16 @@ export default function NavbarComponent() {
                                         Productos
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink activeclassname="active" 
-                                    className="nav-link"
-                                    to={PrivateRoutes.PROFILE}
-                                    >
-                                        Usuario
-                                </NavLink>
-                            </li>
+                            { loginStore.user && 
+                                <li className="nav-item">
+                                    <NavLink activeclassname="active" 
+                                        className="nav-link"
+                                        to={PrivateRoutes.PROFILE}
+                                        >
+                                            Usuario
+                                    </NavLink>
+                                </li>
+                            }
                         </ul>
                         <div className="navbar-nav">
                             <input className="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar"

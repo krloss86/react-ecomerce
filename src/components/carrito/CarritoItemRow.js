@@ -44,10 +44,12 @@ export const CarritoItemRow = (props) => {
         <>
             <tr>
                 <td>
-                    <img src="https://dummyimage.com/50x50/55595c/fff" alt='img' />
+                    <img src={item.item['image/src']}
+                    width={50}
+                    alt='img' />
                 </td>
                 <td>
-                    {item.item.titulo}
+                    {item.item.title}
                 </td>
                 <td>
                     <input className="form-control"
@@ -56,7 +58,7 @@ export const CarritoItemRow = (props) => {
                         onChange={(e) => updateCantidad(e)} />
                 </td>
                 <td className="text-right">
-                    {item.item.precio}
+                    {item.item.price}
                 </td>
                 <td className="text-right">
                     {/* <button className="btn btn-sm btn-primary btnActualizar" onClick={() => updateCantidad(cantidad)}>

@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const LoginComponent = () => {
     
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(-1);
 
     const dispatcher = useDispatch();
 
@@ -35,7 +35,7 @@ const LoginComponent = () => {
             console.log('google load fail, traying')
             setCount(prev=>prev+1);
         }
-    }, [count, loginStore.user]);
+    }, [count, loginStore.user,dispatcher]);
 
     return (
         <>

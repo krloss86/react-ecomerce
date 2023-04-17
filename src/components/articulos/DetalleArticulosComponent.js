@@ -13,7 +13,7 @@ export default function DetallearticulosComponent() {
 	const [articulo,setArticulo] = useState({});
 
     useEffect( () => {
-        const articulo = articulosReducer.find(x=>x.id === parseInt(id));
+        const articulo = articulosReducer.find(x=>x.id === id);
 		setArticulo(articulo);
 	},[articulosReducer, id]
 	);
@@ -26,12 +26,13 @@ export default function DetallearticulosComponent() {
 				<div className="card mb-3">
 				  <div className="row align-items-center p-1">
 				    <div className="col-md-5">
-				      <img src={articulo.img} className="img-fluid rounded-start" alt="ceramica"/>
+				      <img src={articulo['image/src']} 
+					  	className="img-fluid rounded-start" alt="ceramica"/>
 				    </div>
 				    <div className="col-md-7">
 						<div className="card-body">
-				        	<h5 className="card-title">{articulo.titulo}</h5>
-				        	<p className="card-text">{articulo.codigo}</p>
+				        	<h5 className="card-title">{articulo.title}</h5>
+				        	<p className="card-text">{articulo.id}</p>
 					      	<div className="col-sm-12 col-md-12 col-lg-8 col-xxl-6">
 							  <ArticuloAdd articulo={articulo}/>
 							</div>

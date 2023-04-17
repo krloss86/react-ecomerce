@@ -14,18 +14,21 @@ export default function ArticulosComponent(props) {
 
     useEffect(() => {
         async function fetchData() {
-            const data = await fetch(`https://reqres.in/api/users?page=2`);
+            const data = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/1sGDfodoc5aPgj5JGByqXAngeY5x3qq1fu35ntGGSjF0/values/articulos!A:V?key=AIzaSyChhkYJ6yAjHDZtNlagKnK9KOdbQTVm0Ug`);
             const jsonData = await data.json();
-            const articulos =  jsonData.data.map(x=> {return {
-                id: x.id,
-                titulo: x.first_name,
-                codigo: x.email,
-                precio: x.id * 1000,
-                categoria: "categoria 3",
-                marca: "marca 3",
-                img: x.avatar
-            }});
+            const names = jsonData.values.shift();//['key1','key2',...'keyN']
+            const values = jsonData.values;//['value1','value2'...'valuen']
 
+            const articulos =  values.map(x=> { {
+                let jsonRow = {};
+                for(let i=0;i<names.length;i++) {
+                    jsonRow = {
+                        ...jsonRow,
+                        [names[i]]:x[i]
+                    }           
+                }
+                return jsonRow;
+            }});
             dispath(createArticulo(articulos));
         }
         fetchData();

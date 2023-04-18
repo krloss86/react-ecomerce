@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { resetMensaje } from "../../redux2/states/mensaje";
+import { resetMensaje } from "../../redux/states/mensaje";
 
 export default function MensajeriaComponent() {
 

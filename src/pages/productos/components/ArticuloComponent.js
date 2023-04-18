@@ -9,7 +9,7 @@ export default function ArticuloComponent(props) {
         <>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xxl-2 p-1">
                 <div className="card h-100">
-                    <img src={articulo['image/src']} 
+                    <img src={articulo.image} 
                         className="card-img-top" 
                         alt="ceramica" />
                     <div className="card-body">
@@ -17,14 +17,15 @@ export default function ArticuloComponent(props) {
                             {articulo.title}
                         </h5>
                         <p className="card-text">
-                        {articulo['price/symbol']} {articulo['price/fraction']}
+                        {articulo.symbol} {articulo.price}
                         </p>
-                        <NavLink className="btn btn-secondary w-100" to={`/articulo/detalle/${articulo.id}`}>
+                        <NavLink className="btn btn-secondary w-100" 
+                            to={`/articulo/detalle/${articulo.id}`}>
                             Ver
                         </NavLink>
                     </div>
                     <div className="card-footer">
-                        <ArticuloAdd articulo={articulo}></ArticuloAdd>
+                        <ArticuloAdd articulo={articulo}/>
                     </div>
                 </div>
             </div>

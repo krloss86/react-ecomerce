@@ -40,10 +40,10 @@ function DatosCarritoComponent() {
 						return <li key={index} 
 								className="list-group-item d-flex justify-content-between lh-sm">
 								<div>
-									<h6 className="my-0">{item.item.titulo}</h6>
+									<h6 className="my-0">{item.item.title}</h6>
 								</div>
 								<span className="text-muted">
-									{item.item.precio}
+									{item.item.price}
 								</span>
 							</li>
 					})
@@ -59,7 +59,7 @@ function DatosCarritoComponent() {
 					<span>Total ($)</span>
 					<strong>
 					{
-						carritoReducer.items.reduce( (x,y) => x + (y.item.precio * y.cantidad), 0)
+						carritoReducer.items.reduce( (x,y) => x + (y.item.price * y.cantidad), 0)
 					}
 					</strong>
 				</li>

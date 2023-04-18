@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addDatosPersonales, resetDatosPersonales } from '../../../redux2/states/checkout';
+import { addDatosPersonales, resetDatosPersonales } from '../../../redux/states/checkout';
 
 function DatosPersonalesComponent() {
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addMedioDePago } from '../../../redux2/states/checkout';
+import { addMedioDePago } from '../../../redux/states/checkout';
 
 function MedioPagoComponent() {
     const dispath = useDispatch();

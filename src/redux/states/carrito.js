@@ -13,7 +13,7 @@ export const carritoSlice = createSlice({
         },
         addCarrito: (state, action) => {
             const aux  = current(state);
-            const filtered = aux.items.filter(x => x.item.id > 0);
+            const filtered = aux.items.filter(x => x.item.id);
             filtered.push(action.payload);
             return {items:filtered};
         },

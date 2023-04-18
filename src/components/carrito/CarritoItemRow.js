@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { removeCarrito, updateCarrito } from '../../redux2/states/carrito';
+import { removeCarrito, updateCarrito } from '../../redux/states/carrito';
 
 export const CarritoItemRow = (props) => {
     const { item } = props;
-
+    console.log(props);
     const [cantidad, setCantidad] = useState(item.cantidad)
 
     const dispath = useDispatch();
@@ -44,7 +44,7 @@ export const CarritoItemRow = (props) => {
         <>
             <tr>
                 <td>
-                    <img src={item.item['image/src']}
+                    <img src={item.item.image}
                     width={50}
                     alt='img' />
                 </td>

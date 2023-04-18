@@ -1,7 +1,7 @@
 import jwt_decode from 'jwt-decode';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../../redux2/states/login';
+import { login, logout } from '../../redux/states/login';
 import { useState } from 'react';
 
 const LoginComponent = () => {
@@ -14,7 +14,7 @@ const LoginComponent = () => {
 
     const hanldeLogout = () => {
         dispatcher(logout());
-        setCount(0);
+        setCount(count * -1);
     }
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const LoginComponent = () => {
     }, [count, loginStore.user,dispatcher]);
 
     return (
-        <>
+        <div>
         { !loginStore.user && 
             <div id="signInDiv"/>
         }
@@ -53,7 +53,7 @@ const LoginComponent = () => {
                 </button>
             </>
         }
-        </>
+        </div>
     )
 }
 

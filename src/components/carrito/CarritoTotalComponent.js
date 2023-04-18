@@ -5,7 +5,7 @@ export const CarritoTotal = () => {
     const carritoReducer = useSelector(
         (state) => state.carrito
     )
-
+    console.log(carritoReducer);
     return (
 
         <>
@@ -15,9 +15,10 @@ export const CarritoTotal = () => {
                 <td><strong>Total</strong></td>
                 <td className="text-right">
                     <strong>
+                        <b>$</b>
                         {
                             //[].reduce()
-                            carritoReducer.items.reduce( (x,y) => x + (y.item.precio * y.cantidad), 0)
+                            carritoReducer.items.reduce( (x,y) => x + (parseInt(y.item.price) * y.cantidad), 0)
                         }
                     </strong>
             </td>

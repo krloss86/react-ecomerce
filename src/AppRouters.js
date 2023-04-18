@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ArticulosComponent from "./components/articulos/ArticulosComponent";
-import DetallearticulosComponent from "./components/articulos/DetalleArticulosComponent";
+import ArticulosPage from "./pages/productos/ArticulosPage";
 import Navbar from "./components/articulos/NavbarComponent";
 import Carritocomponent from "./components/carrito/CarritoComponent";
 import MensajeriaComponent from "./components/mensaje/MensajeriaComponent";
@@ -14,6 +13,7 @@ import { PrivateRoutes, PublicRoutes } from './guards/routes';
 import AuthGuard from "./guards/auth-guard";
 
 import { Suspense,lazy } from "react";
+import DetallearticulosComponent from "./pages/productos/components/DetalleArticulosComponent";
 
 const Profile = lazy (()=> import("./components/secure/pages/Profile"));
 
@@ -26,10 +26,10 @@ export default function AppRouters() {
                 <MensajeriaComponent />
                 <div className="container">
                     <Routes>
-                        <Route path="/" element={<ArticulosComponent />} />
+                        <Route path="/" element={<ArticulosPage />} />
                         <Route path={PublicRoutes.CARRITO} element={<Carritocomponent />} />
                         <Route path={PublicRoutes.ARTICULO_DETALLE} element={<DetallearticulosComponent />} />
-                        <Route path={PublicRoutes.PRODUCTOS} element={<ArticulosComponent />} />
+                        <Route path={PublicRoutes.PRODUCTOS} element={<ArticulosPage />} />
 
                         <Route element={<AuthGuard />}>
                             <Route path={PrivateRoutes.CHECKOUT} element={<CheckoutPage />} />

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { createMensaje } from '../../redux2/states/mensaje';
-import { addCarrito, updateCarrito } from '../../redux2/states/carrito';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCarrito, updateCarrito } from '../../../redux/states/carrito';
+import { createMensaje } from '../../../redux/states/mensaje';
 
 export const ArticuloAdd = (props) => {
 	
@@ -28,7 +27,6 @@ export const ArticuloAdd = (props) => {
 
 
 	const submitHandler = () => {
-
 		const existsInCart = carritoReducer.items.find(item=>item.item.id === articulo.id);
 		
 		if(existsInCart) {

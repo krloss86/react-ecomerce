@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { resetCarrito } from '../../../redux2/states/carrito';
-import { resetCheckout } from '../../../redux2/states/checkout';
+import { resetCarrito } from '../../../redux/states/carrito';
+import { resetCheckout } from '../../../redux/states/checkout';
 import { PrivateRoutes } from '../../../guards/routes';
 
 function GenerarOrdenComponent() {

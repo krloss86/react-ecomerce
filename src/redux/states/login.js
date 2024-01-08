@@ -32,7 +32,7 @@ export const loginSlice = createSlice({
         },
         logout: () => {
             removeFromLocalSotorage(UserKeys.USER_KEY);
-            return LoginInitialState
+            return {...LoginInitialState}
         }
     }
 }); 

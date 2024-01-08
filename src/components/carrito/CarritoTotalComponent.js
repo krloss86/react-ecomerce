@@ -5,7 +5,6 @@ export const CarritoTotal = () => {
     const carritoReducer = useSelector(
         (state) => state.carrito
     )
-    console.log(carritoReducer);
     return (
 
         <>

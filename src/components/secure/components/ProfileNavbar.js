@@ -23,6 +23,11 @@ function ProfileNavbar() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink to={PrivateRoutes.ORDERS} className='nav-link'>
+                                    Ordenes
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink className="nav-link" 
                                     aria-current="page"
                                     to={PrivateRoutes.PROFILE}>
@@ -40,6 +45,7 @@ function ProfileNavbar() {
                     </div>
                 </div>
             </div>
+            {/* 
             <div className="accordion-item">
                 <h2 className="accordion-header" id="headingTwo">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -58,6 +64,7 @@ function ProfileNavbar() {
                     </div>
                 </div>
             </div>
+            
             <div className="accordion-item">
                 <h2 className="accordion-header" id="headingThree">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -72,6 +79,7 @@ function ProfileNavbar() {
                     </div>
                 </div>
             </div>
+            */}
         </div>
     )
 }

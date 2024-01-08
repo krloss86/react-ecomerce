@@ -4,7 +4,6 @@ import { removeCarrito, updateCarrito } from '../../redux/states/carrito';
 
 export const CarritoItemRow = (props) => {
     const { item } = props;
-    console.log(props);
     const [cantidad, setCantidad] = useState(item.cantidad)
 
     const dispath = useDispatch();

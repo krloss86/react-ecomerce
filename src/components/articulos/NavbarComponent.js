@@ -86,7 +86,7 @@ export default function NavbarComponent() {
                         </ul>
                         <ul className="navbar-nav mb-2 mb-lg-0 mt-sm-2 mt-md-2 mt-lg-0">
                             <li className="mx-2">
-                                <LoginComponent/>
+                                <LoginComponent key={loginStore.user}/>
                             </li>
                         </ul>
                     </div>

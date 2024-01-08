@@ -24,16 +24,14 @@ export function convertFromResponse(jsonData) {
     const values = jsonData.values;//['value1','value2'...'valuen']
 
     const articulos = values.map(x => {
-        {
-            let jsonRow = {};
-            for (let i = 0; i < names.length; i++) {
-                jsonRow = {
-                    ...jsonRow,
-                    [names[i]]: x[i]
-                }
+        let jsonRow = {};
+        for (let i = 0; i < names.length; i++) {
+            jsonRow = {
+                ...jsonRow,
+                [names[i]]: x[i]
             }
-            return jsonRow;
         }
+        return jsonRow;
     });
     return articulos;
 }

@@ -1,17 +1,11 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { /*Link,*/ NavLink } from 'react-router-dom';
 import { PrivateRoutes } from '../../../guards/routes';
 import ProfileNavbar from '../components/ProfileNavbar';
 
 function Ordenes() {
     return (
         <>
-            <section className="text-center mb-5">
-                <div className="container">
-                    <h1>E-COMMERCE PROFILE</h1>
-                </div>
-            </section>
-            <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-lg-3">
                         <ProfileNavbar/>
@@ -89,7 +83,6 @@ function Ordenes() {
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

@@ -1,25 +1,18 @@
-import jwt_decode from 'jwt-decode';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../../redux/states/login';
+import { login } from '../../redux/states/login';
 import { useState } from 'react';
 import { fromExternalToLocalLogin } from './infrastructure/login-adapter';
+import jwt_decode from 'jwt-decode';
 
 const LoginComponent = () => {
     
-    const [count, setCount] = useState(-1);
-
     const dispatcher = useDispatch();
 
     const loginStore = useSelector(store => store.login);
 
     const [googleResponse,setGoogleResponse] = useState(undefined);
-
-    const hanldeLogout = () => {
-        dispatcher(logout());
-        setCount(count * -1);
-    }
-
+    
     useEffect(() => {
         /* global google */
         try {
@@ -34,13 +27,13 @@ const LoginComponent = () => {
                 google.accounts.id.renderButton(
                     document.getElementById('signInDiv'),
                     { theme: 'outline', size: 'large' }
-                );          
+                ); 
+                google.accounts.id.prompt(); // also display the One Tap dialog         
             }
         } catch(error) {
             setGoogleResponse(prev => undefined)
-            setCount(prev => prev + 1);
         }
-    }, [count, loginStore.user]);
+    }, []);
 
     useEffect(() => {
         if(googleResponse) {
@@ -50,22 +43,7 @@ const LoginComponent = () => {
     },[googleResponse]);
 
     return (
-        <div>
-        { !loginStore.user && 
-            <div id="signInDiv"/>
-        }
-        { loginStore.user && 
-            <>
-                {/*
-                <img src={loginStore?.user?.picture} alt=""/>
-                <h5>{loginStore?.user?.name}</h5>
-                */}
-                <button onClick={hanldeLogout} className="btn btn-danger">
-                    Logout
-                </button>
-            </>
-        }
-        </div>
+        <div id="signInDiv"/>
     )
 }
 

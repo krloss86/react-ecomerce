@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addDatosPersonales, resetDatosPersonales } from '../../../redux/states/checkout';
+import DatosPersonales from '../../../components/secure/components/DatosPersonales';
 
 function DatosPersonalesComponent() {
 
@@ -33,47 +34,7 @@ function DatosPersonalesComponent() {
             </h3>
             {/* <form className="needs-validation" onSubmit={e => handleSubmit(e)}> */}
                 <div className="row g-2">
-                    <div className="col-sm-6">
-                        <label htmlFor="firstName" className="form-label">
-                            Nombre
-                        </label>
-                        <input type="text"
-                            className="form-control"
-                            id="firstName"
-                            placeholder="carlos"
-                            value={nombre}
-                            onChange={e => setNombre(e.target.value)} required="" />
-                        <div className="invalid-feedback">
-                            requerido
-                        </div>
-                    </div>
-                    <div className="col-sm-6">
-                        <label htmlFor="lastName" className="form-label">
-                            Apellido
-                        </label>
-                        <input name="apellido"
-                            type="text"
-                            className="form-control"
-                            id="lastName"
-                            placeholder="lópez"
-                            value={apellido}
-                            onChange={e => setApellido(e.target.value)} required="" />
-                        <div className="invalid-feedback">
-                            requerido
-                        </div>
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="email" className="form-label">
-                            Email
-                            <span className="text-muted">
-                                (Optional)
-                            </span>
-                        </label>
-                        <input name="EMAIL" type="email" className="form-control" id="email" placeholder="you@example.com" value={email} onChange={e => setEmail(e.target.value)} required="" />
-                        <div className="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
-                        </div>
-                    </div>
+                    <DatosPersonales showProfile={false}/>
                     <div className="col-12">
                         <label htmlFor="address" 
                             className="form-label">

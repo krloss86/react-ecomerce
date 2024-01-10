@@ -4,19 +4,12 @@ import ProfileNavbar from "../components/ProfileNavbar";
 function Profile() {
     return (
         <>
-            <section className="text-center mb-5">
-                <div className="container">
-                    <h1>E-COMMERCE PROFILE</h1>
+            <div className="row mt-5">
+                <div className="col-sm-12 col-lg-3">
+                    <ProfileNavbar/>
                 </div>
-            </section>
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-12 col-lg-3">
-                        <ProfileNavbar/>
-                    </div>
-                    <div className="col-sm-12 col-lg-9">
-                        <ProfileData/>
-                    </div>
+                <div className="col-sm-12 col-lg-9">
+                    <ProfileData/>
                 </div>
             </div>
         </>

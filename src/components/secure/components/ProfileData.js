@@ -1,58 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import DatosPersonales from './DatosPersonales';
+import Direcciones from './Direcciones';
 
 function ProfileData() {
-    const userLogged = useSelector(store => store.login);
+   
     return (
-        <div>
-            <img src={userLogged.user.avatar}/>
-            <h3 className='text-primary'>Personal info</h3>
-            <div className="row">
-                <div className="col">
-                    <div className="form-group">
-                        <label htmlFor="name">First Name</label>
-                        <input className="form-control input" 
-                            type="text" 
-                            value={userLogged.user.fistName} readOnly/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="name">Last Name</label>
-                        <input className="form-control"
-                            type="text" 
-                            value={userLogged.user.lastName}  readOnly
-                            />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="name">Email</label>
-                        <input className="form-control" 
-                            type="text" 
-                            value={userLogged.user.email}  readOnly/>
-                    </div>
-                </div>
-            </div>
-            <h3 className='text-primary'>Address Info</h3>
-            <div className="row">
-                <div className="col">
-                    <div className="form-group">
-                        <label htmlFor="name">Pais</label>
-                        <select className="form-select">
-                            <option >ARGENTINA</option>
-                            <option >URUGUAY</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="name">Provincia</label>
-                        <select className="form-select">
-                            <option>MISIONES</option>
-                            <option>BUENOS AIRES</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="name">Direccion</label>
-                        <input className="form-control" type="text" />
-                    </div>
-                </div>
-            </div>
+        <>
+            <DatosPersonales showProfile={true}/>            
+            <Direcciones/>
             {/* 
             <div className="row">
                 <div className="col">
@@ -67,7 +22,7 @@ function ProfileData() {
                 </div>
             </div>
             */}
-        </div>
+        </>
     )
 }
 

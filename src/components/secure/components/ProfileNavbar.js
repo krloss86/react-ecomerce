@@ -1,9 +1,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { PrivateRoutes } from '../../../guards/routes'
-import ChangePassword from './ChangePassword'
+//import ChangePassword from './ChangePassword'
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../redux/states/login';
 
 function ProfileNavbar() {
+    const dispatcher = useDispatch();
+
+    const hanldeLogout = () => {
+        dispatcher(logout());
+    }
     return (
         <div className="accordion" id="accordionExample">
             <div className="accordion-item">
@@ -40,6 +47,15 @@ function ProfileNavbar() {
                                     to={PrivateRoutes.PROFILE}>
                                     Mis Tarjetas
                                 </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <p>
+                                <NavLink className="nav-link text-danger"  
+                                    aria-current="page"
+                                    onClick={hanldeLogout}>
+                                    Logout
+                                </NavLink>
+                                </p>
                             </li>
                         </ul>
                     </div>

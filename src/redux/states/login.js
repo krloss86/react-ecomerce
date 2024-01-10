@@ -11,11 +11,15 @@ const addToLocalSotorage = (key, value) =>{
     localStorage.setItem(key,JSON.stringify(value));
 }
 const getFromLocalStorage = (key) => {
-    return localStorage.getItem(UserKeys.USER_KEY) ?  JSON.parse(localStorage.getItem(UserKeys.USER_KEY   ))  : undefined;
+    return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)).user : undefined;
 }
 
 const LoginInitialState = {
     user: getFromLocalStorage(UserKeys.USER_KEY)
+}
+
+const EmptyLoginInitialState = {
+    
 }
 
 export const loginSlice = createSlice({
@@ -32,7 +36,7 @@ export const loginSlice = createSlice({
         },
         logout: () => {
             removeFromLocalSotorage(UserKeys.USER_KEY);
-            return {...LoginInitialState}
+            return {...EmptyLoginInitialState}
         }
     }
 }); 

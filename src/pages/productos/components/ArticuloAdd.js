@@ -41,7 +41,7 @@ export const ArticuloAdd = (props) => {
 			}));
 		}
 		
-		dispatcher(createMensaje('Se ha agregado'));
+		dispatcher(createMensaje(`Se ha agregado ${articulo.id}`));
 	}
 
 	const increment = () => {

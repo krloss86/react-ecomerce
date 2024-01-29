@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { resetMensaje } from "../../redux/states/mensaje";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react";
 
+const secounds = 5000;
 export default function MensajeriaComponent() {
 
     const mensajeReducer = useSelector(
@@ -12,29 +16,17 @@ export default function MensajeriaComponent() {
     const limpiar = () => {
         dispath(resetMensaje());
     }
+    
+    useEffect(()=> {
+        if(mensajeReducer.mensaje){
+            toast(mensajeReducer.mensaje);
+            setTimeout(() => {
+                limpiar();
+            }, secounds);
+        }
+    },[mensajeReducer.mensaje]);
 
     return (
-
-        (
-            mensajeReducer.mensaje 
-            ? 
-            <div className="container mt-1">
-                <div className="row">
-                    <div className="alert alert-info alert-dismissible fade show" role="alert">
-                        <strong>
-                            {mensajeReducer.mensaje}
-                        </strong>
-                        <button type="button" 
-                            className="btn-close"
-                            data-bs-dismiss="alert"
-                            aria-label="Close" 
-                            onClick={()=>limpiar()}>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            : 
-            <></>
-        )
+        <ToastContainer/>
     )
 }

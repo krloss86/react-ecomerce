@@ -1,4 +1,6 @@
 export const PublicRoutes = {
+    HOME: '/',
+    LOGIN: '/login',
     CARRITO: '/carrito',
     PRODUCTOS: '/productos',
     ARTICULO_DETALLE: '/articulo/detalle/:id',

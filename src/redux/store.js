@@ -4,6 +4,7 @@ import { mensajeSlice } from "./states/mensaje";
 import { articuloSlice } from "./states/articulo";
 import { carritoSlice } from './states/carrito';
 import { loginSlice } from "./states/login";
+import { breadCrumSlice } from "./states/bredcrum";
 
 export default configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export default configureStore({
         mensaje : mensajeSlice.reducer,
         articulos: articuloSlice.reducer,
         carrito: carritoSlice.reducer,
-        login: loginSlice.reducer
+        login: loginSlice.reducer,
+        breadCrumSlice: breadCrumSlice.reducer,
     }
 });

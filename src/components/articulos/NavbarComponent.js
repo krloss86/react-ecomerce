@@ -2,7 +2,7 @@ import { useState } from "react";
 import { /*useDispatch,*/ useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { PrivateRoutes, PublicRoutes } from './../../guards/routes';
-import LoginComponent from './../login/LoginComponent';
+// import LoginComponent from './../login/LoginComponent';
 
 
 export default function NavbarComponent() {
@@ -84,11 +84,13 @@ export default function NavbarComponent() {
                                 </Link>
                             </li>
                         </ul>
+                        {/*
                         <ul className="navbar-nav mb-2 mb-lg-0 mt-sm-2 mt-md-2 mt-lg-0">
                             <li className="mx-2">
                                 <LoginComponent key={loginStore.user}/>
                             </li>
                         </ul>
+                        */}
                     </div>
                 </div>
             </nav>       

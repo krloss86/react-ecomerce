@@ -29,10 +29,6 @@ function DatosPersonalesComponent() {
 
     return (
         <>
-            <h3 className="text-primary mb-3">
-                Datos Personales
-            </h3>
-            {/* <form className="needs-validation" onSubmit={e => handleSubmit(e)}> */}
                 <div className="row g-2">
                     <DatosPersonales showProfile={false}/>
                     <div className="col-12">
@@ -74,7 +70,6 @@ function DatosPersonalesComponent() {
                         </div>
                     </div>
                 </div>
-            {/* </form> */}
         </>
     )
 }
